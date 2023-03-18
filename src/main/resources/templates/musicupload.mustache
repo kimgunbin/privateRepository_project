@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>음악 업로드</title>
+</head>
+<body>
+<h1>음악 업로드</h1>
+<form method="post" action="/music/upload" enctype="multipart/form-data">
+    <label for="title">제목:</label>
+    <input type="text" name="title" id="title"><br><br>
+
+    <label for="artist">아티스트:</label>
+    <input type="text" name="artist" id="artist"><br><br>
+
+    <label for="file">음악 파일:</label>
+    <input type="file" name="file" id="file"><br><br>
+
+    <input type="submit" value="업로드">
+</form>
+</body>
+</html>

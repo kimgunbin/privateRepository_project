@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<!--
+	Astral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en" xmlns:th=http://www.thymeleaf.org>
+	<head>
+		<title>Astral by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+
+<style>
+    #contentDiv{
+
+
+	  text-align : center;
+
+	  padding : 100px 0;
+    }
+
+    a {
+  	  text-decoration: none;
+  }
+</style>
+
+
+
+	<body class="is-preload">
+
+		<!-- Wrapper-->
+			<div id="wrapper">
+
+				<!-- Nav -->
+					<nav id="nav">
+						<a href="#" class="icon solid fa-home"><span>Home</span></a>
+						<a href="#work" class="icon solid fa-folder"><span>Image</span></a>
+                        <a href="#contact"><i class="fa-solid fa-headphones"><span>Calender</span></i></a>
+						<a href="#music"><i class="fa-solid fa-music"><span>Music</span></i></a>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Me -->
+							<article id="home" class="panel intro">
+								<header>
+									<h1>김건빈</h1>
+									<p>개인 저장소</p>
+								</header>
+								<a href="#work" class="jumplink pic">
+									<span class="arrow icon solid fa-chevron-right"><span>See my work</span></span>
+									<img src="images/me.jpg" alt="" />
+								</a>
+							</article>
+
+						<!-- Work -->
+							<article id="work" class="panel">
+								<header>
+									<h2>사진 저장소</h2>
+								</header>
+								<p>
+
+								</p>
+								<section>
+
+									{{#testboardList}}
+									<div class="row" >
+										<div class="col-4 col-6-medium col-12-small" id="image-{{id}}">
+                                            <p>제목:{{title}}</p>
+											<img src="images/files/{{filename}}" alt="" >
+										</div>
+                                        <div>
+                                        <p id="contentDiv">내용:{{content}}</p>
+                                        </div>
+                                        <a href="/board/delete/{{id}}">삭제</a>
+									</div>
+                                        {{/testboardList}}
+                                    <button type="button" class="btn btn-outline-primary"><a href="/board/write" >사진 업로드</a></button>
+
+								</section>
+							</article>
+
+						<!-- Contact -->
+							<article id="contact" class="panel">
+								<header>
+									<h2>달력</h2>
+								</header>
+                                <div id='calendar'></div>
+							</article>
+
+                        <!--music-->
+                        <article id="music" class="panel">
+                            <header>
+                                <h2>음악</h2>
+                            </header>
+                            {{#musiclist}}
+                                <div class="row">
+                                    <div class="col-4 col-6-medium col-12-small" id="image-{{id}}">
+                                        <p>제목:{{title}} 작곡가:{{artist}}</p>
+                                        <audio controls>
+                                            <source src="/assets/musics/{{fileName}}" type="audio/mpeg">
+                                        </audio>
+                                    </div>
+                                    <a href="/music/delete/{{id}}">삭제</a>
+
+                                </div>
+                            {{/musiclist}}
+                            <button type="button" class="btn btn-outline-primary"><a href="/music/uploadboard" >음악 업로드</a></button>
+                        </article>
+
+					</div>
+
+				<!-- Footer -->
+					<div id="footer">
+						<ul class="copyright">
+							<li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+        <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/index.global.min.js'></script>
+        <script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth'
+        });
+        calendar.render();
+      });
+
+    </script>
+
+        <!--댓글 삭제-->
+
+
+
+	</body>
+</html>
